@@ -1,3 +1,7 @@
+import os
+
+# direccion de la carpeta donde se guardaran los datos
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Links de descarga de los archivos .CSV
 URLS = {

@@ -1,11 +1,15 @@
 import requests
 import csv
-from utils import URLS
 import os
+import sys
 from datetime import date
+from utils import ( URLS,
+                    BASE_DIR )
 
 # download date
 today: date = date.today()
+
+
 
 def get_data(url: str, category: str) -> None:
     """ Get data from a given URL and write it to a csv file
@@ -24,10 +28,10 @@ def get_data(url: str, category: str) -> None:
         data = list(cr)
 
         # create the category folder if it doesn't exist
-        dir = f"{category}/{str(today.year)}-{str(today.strftime('%B'))}"
+        dir = f"{BASE_DIR}/data/{category}/{str(today.year)}-{str(today.strftime('%B'))}"
 
         if not os.path.exists(dir):
-                os.makedirs(dir)
+            os.makedirs(dir)
 
         # Write data to a csv file in the category folder
         filename = f"{dir}/{category}-{str(today.day)}-{str(today.month)}-{str(today.year)}.csv"
