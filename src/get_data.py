@@ -36,7 +36,7 @@ def get_data(url: str, category: str) -> None:
         # Write data to a csv file in the category folder
         filename = f"{dir}/{category}-{str(today.day)}-{str(today.month)}-{str(today.year)}.csv"
 
-        with open(filename, "w") as f:
+        with open(filename, "w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
             writer.writerows(data)
                 
